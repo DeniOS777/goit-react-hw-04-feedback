@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const StatisticsBlock = styled.div`
-  padding-left: 5px;
-`;
-
 export const FeedbackPoints = styled.div`
   margin-bottom: 15px;
 `;

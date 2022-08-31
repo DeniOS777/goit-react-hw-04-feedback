@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../Box';
 
 import {
-  StatisticsBlock,
   FeedbackPoints,
   GoodPoints,
   NeutralPoints,
@@ -13,7 +13,7 @@ import {
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
-    <StatisticsBlock>
+    <Box pl={3}>
       <FeedbackPoints>
         <GoodPoints>
           Good: {good} {good ? '🤩' : ''}
@@ -30,7 +30,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
       <PositiveFeedbacksPercentage>
         Positive feedbacks: {positivePercentage}%
       </PositiveFeedbacksPercentage>
-    </StatisticsBlock>
+    </Box>
   );
 };
 

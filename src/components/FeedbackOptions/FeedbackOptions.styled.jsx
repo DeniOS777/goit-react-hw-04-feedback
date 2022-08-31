@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const ButtonContainer = styled.div`
-  display: flex;
-`;
-
 export const Button = styled.button`
   display: flex;
   align-items: center;
@@ -40,9 +36,5 @@ export const Button = styled.button`
     &:hover {
       background-color: ${p => p.theme.colors.redColorHover};
     }
-  }
-
-  &:not(:last-child) {
-    margin-right: 10px;
   }
 `;

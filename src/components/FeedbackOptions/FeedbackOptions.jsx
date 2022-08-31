@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../Box';
 
-import { ButtonContainer, Button } from './FeedbackOptions.styled';
+import { Button } from './FeedbackOptions.styled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <ButtonContainer>
+    <Box display="flex" gridGap={3}>
       {options.map(key => (
         <Button onClick={() => onLeaveFeedback(key)} key={key} type="button">
           {key}
         </Button>
       ))}
-    </ButtonContainer>
+    </Box>
   );
 };
 
