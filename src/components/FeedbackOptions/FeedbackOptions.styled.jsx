@@ -4,16 +4,16 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7px;
+  padding: ${p => p.theme.space[3]}px;
   min-width: 80px;
   color: ${p => p.theme.colors.whiteColor};
-  font-size: 18px;
-  font-weight: 500;
+  font-size: ${p => p.theme.fontSizes.m};
+  font-weight: ${p => p.theme.fontWeights.middle};
   letter-spacing: 0.02em;
   background-color: ${p => p.theme.colors.neutralColor};
   border-style: none;
-  border-radius: 5px;
-  transition: background-color 0.3s linear, transform 0.1s linear;
+  border-radius: ${p => p.theme.radii.sm};
+  transition: background-color 300ms linear, transform 100ms linear;
   cursor: pointer;
 
   &:hover {

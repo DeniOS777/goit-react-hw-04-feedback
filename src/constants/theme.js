@@ -21,13 +21,15 @@ export const theme = {
   fontSizes: {
     xs: '12px',
     s: '14px',
-    m: '16px',
+    m: '18px',
+    lm: '22px',
     l: '32px',
     xl: '64px',
   },
 
   fontWeights: {
     normal: 400,
+    middle: 500,
     bold: 700,
   },
 

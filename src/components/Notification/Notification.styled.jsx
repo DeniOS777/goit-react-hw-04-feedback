@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const Text = styled.p`
-  font-size: 22px;
+export const Text = styled.p`
+  font-size: ${p => p.theme.fontSizes.lm};
 `;
-
-export default Text;

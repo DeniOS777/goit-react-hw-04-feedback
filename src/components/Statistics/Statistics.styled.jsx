@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const FeedbackPoints = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: ${p => p.theme.space[4]}px;
 `;
 
 export const GoodPoints = styled.p`
-  font-size: 20px;
+  font-size: ${p => p.theme.fontSizes.lm};
 
   &:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: ${p => p.theme.space[2]}px;
   }
 `;
 
