@@ -8,7 +8,11 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <Box display="flex" gridGap={3}>
       {options.map(key => (
-        <Button onClick={() => onLeaveFeedback(key)} key={key} type="button">
+        <Button
+          onClick={() => onLeaveFeedback({ type: `${key}` })}
+          key={key}
+          type="button"
+        >
           {key}
         </Button>
       ))}

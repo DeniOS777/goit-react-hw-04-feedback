@@ -1,44 +1,50 @@
-import { useState } from 'react';
-
+import { useReducer } from 'react';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
 import Section from './Section';
 import Notification from './Notification';
-
 import { Box } from './Box';
 import { GlobalStyle } from './GlobalStyle';
 
 const App = () => {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  const [state, dispatch] = useReducer(feadbackReducer, {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
-  const items = { good, neutral, bad };
-
-  const handleClickButton = key => {
-    switch (key) {
+  function feadbackReducer(state, action) {
+    switch (action.type) {
       case 'good':
-        setGood(state => state + 1);
-        break;
+        return {
+          ...state,
+          good: state.good + 1,
+        };
       case 'neutral':
-        setNeutral(state => state + 1);
-        break;
+        return {
+          ...state,
+          neutral: state.neutral + 1,
+        };
       case 'bad':
-        setBad(state => state + 1);
-        break;
+        return {
+          ...state,
+          bad: state.bad + 1,
+        };
       default:
-        throw new Error('This field doesn`t exist');
+        return state;
     }
-  };
+  }
+
+  const { good, neutral, bad } = state;
 
   const countTotalFeedback = () =>
-    Object.values(items).reduce((total, item) => total + item, 0);
+    Object.values(state).reduce((total, item) => total + item, 0);
 
   const countPositiveFeedbackPercentage = totalFeedbacks => {
     return good ? Number(((good / totalFeedbacks) * 100).toFixed()) : 0;
   };
 
-  const options = Object.keys(items);
+  const options = Object.keys(state);
   const totalFeedbacks = countTotalFeedback();
   const positiveFeedbackPercentage =
     countPositiveFeedbackPercentage(totalFeedbacks);
@@ -46,10 +52,7 @@ const App = () => {
   return (
     <Box p={3}>
       <Section title="Please leave feedback 😉">
-        <FeedbackOptions
-          options={options}
-          onLeaveFeedback={handleClickButton}
-        />
+        <FeedbackOptions options={options} onLeaveFeedback={dispatch} />
       </Section>
 
       <Section title="Statistics">
